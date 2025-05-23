@@ -7,9 +7,6 @@ def home(request):
     return render(request, 'home.html')
 
 def contacts(request):
-    return render(request, 'contacts.html')
-
-def for_contacts(request):
     if request.method =="POST":
         name = request.POST.get("name")
         email = request.POST.get("email")
@@ -17,4 +14,3 @@ def for_contacts(request):
 
         return HttpResponse(f"Спасибо, {name}, сообщение получено.")
     return render(request, 'contacts.html')
-
