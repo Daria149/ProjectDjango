@@ -20,7 +20,7 @@ git@github.com:Daria149/ProjectDjango.git
 2. Установите зависимости:
 
 ```
-pip install -r requirements.txt или через poetry init
+через poetry init
 ```
 
 ## Использование:

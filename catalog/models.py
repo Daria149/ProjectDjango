@@ -18,11 +18,11 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=250, verbose_name= 'Наименование продукта', help_text='Введите наименование продукта')
     description = models.TextField(verbose_name= 'Описание продукта', help_text='Заполните описание продукта')
-    photo = models.ImageField(upload_to='Products/Photos', blank=True, null=True, verbose_name= 'Изображение продукта', help_text='Загрузите фотографию продукта')
+    photo = models.ImageField(upload_to='photos', blank=True, null=True, verbose_name= 'Изображение продукта', help_text='Загрузите фотографию продукта')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, verbose_name= 'Категория продукта', help_text='Заполните категорию продукта', null=True, blank=True, related_name='categories')
     price = models.IntegerField(verbose_name= 'Цена продукта', help_text='Укажите цену продукта')
-    created_at = models.DateTimeField(verbose_name= 'Дата создания продукта', help_text='Укажите дату создания продукта', null=True, blank=True)
-    updated_at = models.DateTimeField(verbose_name='Дата последнего изменения продукта', help_text='Укажите дату последнего изменения продукта', null=True, blank=True)
+    created_at = models.DateField(verbose_name= 'Дата создания продукта', help_text='Укажите дату создания продукта', null=True, blank=True)
+    updated_at = models.DateField(verbose_name='Дата последнего изменения продукта', help_text='Укажите дату последнего изменения продукта', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Продукт'

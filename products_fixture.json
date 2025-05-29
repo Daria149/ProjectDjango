@@ -1,0 +1,54 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "name": "Samsung Galaxy S25 Ultra",
+        "description": "Основная камера200 МП, 4 камеры",
+        "photo": "",
+        "category": 1,
+        "price": 15679,
+        "created_at": "2024-10-20T00:00:00Z",
+        "updated_at": "2025-01-10T00:00:00Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "TECNO Spark 20 Pro",
+        "description": "Встроенная 256 ГБ, оперативная 12 ГБ, 8 ГБ",
+        "photo": "",
+        "category": 1,
+        "price": 34900,
+        "created_at": "2025-01-20T00:00:00Z",
+        "updated_at": "2025-05-10T00:00:00Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "Ноутбук HP 250",
+        "description": "Емкость кэш-памяти составляет 10 МБ",
+        "photo": "",
+        "category": 2,
+        "price": 48000,
+        "created_at": "2025-02-11T00:00:00Z",
+        "updated_at": "2025-04-18T00:00:00Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+        "name": "Ноутбук Intel Core i7",
+        "description": "Оперативная память составляет 16 ГБ DDR4 с частотой 3200 МГц",
+        "photo": "",
+        "category": 2,
+        "price": 33845,
+        "created_at": "2025-03-10T00:00:00Z",
+        "updated_at": "2025-05-10T00:00:00Z"
+    }
+}
+]
