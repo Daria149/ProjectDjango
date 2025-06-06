@@ -84,9 +84,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "price",
-                    models.IntegerField(
-                        help_text="Укажите цену продукта", verbose_name="Цена продукта"
-                    ),
+                    models.IntegerField(help_text="Укажите цену продукта", verbose_name="Цена продукта"),
                 ),
                 (
                     "created_at",
