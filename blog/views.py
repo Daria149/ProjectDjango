@@ -10,7 +10,7 @@ class BlogListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(publication_attribute="True")
+        return queryset.filter(publication_attribute=True)
 
 
 class BlogDetailView(DetailView):
@@ -18,20 +18,20 @@ class BlogDetailView(DetailView):
 
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
-        self.object.views_quantity +=1
+        self.object.views_quantity += 1
         self.object.save()
         return self.object
 
 
 class BlogCreateView(CreateView):
     model = Blog
-    fields = ("title", "content", "photo", "created_at", "publication_attribute", "views_quantity")
+    fields = ("title", "content", "photo", "publication_attribute")
     success_url = reverse_lazy('blog:blog_list')
 
 
 class BlogUpdateView(UpdateView):
     model = Blog
-    fields = ("title", "content", "photo", "created_at", "publication_attribute", "views_quantity")
+    fields = ("title", "content", "photo", "publication_attribute")
     success_url = reverse_lazy('blog')
 
     def get_success_url(self):

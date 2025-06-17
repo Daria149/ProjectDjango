@@ -18,16 +18,14 @@ class Blog(models.Model):
     created_at = models.DateField(
         verbose_name="Дата создания",
         help_text="Укажите дату создания",
-        blank=True,
-        null=True,
+        auto_now_add=True,
     )
     publication_attribute = models.BooleanField(default=False)
     views_quantity = models.PositiveIntegerField(
         verbose_name="Счетчик просмотров",
         help_text="Укажите количество просмотров",
-        default=0,
-        blank=False,
-        null=True)
+        default=0
+    )
 
     class Meta:
         verbose_name = "Публикация"
