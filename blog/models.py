@@ -19,6 +19,7 @@ class Blog(models.Model):
         verbose_name="Дата создания",
         help_text="Укажите дату создания",
         auto_now_add=True,
+        null=True,
     )
     publication_attribute = models.BooleanField(default=False)
     views_quantity = models.PositiveIntegerField(
