@@ -22,7 +22,7 @@ class Blog(models.Model):
     )
     publication_attribute = models.BooleanField(default=False)
     views_quantity = models.PositiveIntegerField(
-        verbose_name="Счетчик просмотров",
+        verbose_name="Количество просмотров",
         help_text="Укажите количество просмотров",
         default=0
     )
