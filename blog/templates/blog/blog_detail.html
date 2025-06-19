@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="row row-cols-1 row-cols-md-3 mt-4 g-4">
+    <div class="col">
+        <div class="card card_param width: 200px  min-height: 100vh margin-top: 20px margin-left: 30px padding: 10px">
+            <div class="card-body">
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                        <h3 class="card-title">{{ object.title }}</h3>
+                </div>
+                <img src="{{ article.photo | media_filter }}" class="img-responsive" width="400">
+                <hr class="border-2"/>
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                      <h4 class="card-title">Дата создания: {{ object.created_at }}</h4>
+                </div>
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                      <h4 class="card-title">Количество просмотров:  {{ object.views_quantity }}</h4>
+                </div>
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                      <h4 class="card-title">Есть публикация: {{ object.publication_attribute }}</h4>
+                </div>
+                <div class="container d-flex
+                   align-items-center
+                   text-center">
+                    <p class="card-text">{{ object.content|truncatechars:100 }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
