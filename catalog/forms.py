@@ -42,3 +42,4 @@ class ProductForm(StyleFormMixin, ModelForm):
         if product_price < 0:
             raise ValidationError("Цена не может быть отрицательной!")
         return product_price
+
