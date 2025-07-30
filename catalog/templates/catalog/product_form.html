@@ -1,0 +1,43 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="col-12">
+</div>
+    <div class='container'>
+        <div class="row">
+            <div class="col-9">
+                <form class="row" method="post" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-body">
+                            {% csrf_token %}
+                            <div>
+                            {% for field in form %}
+                            <div class="form-group">
+                                {{field.label_tag}}
+                                <div>{{field}}</div>
+                                {% if field.errors %}
+                                {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{error}}
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                             {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        {% if object %}
+                        Сохранить
+                        {% else %}
+                        Cоздать
+                        {% endif %}
+                    </button>
+                    <a href="{% url 'catalog:product_list' %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

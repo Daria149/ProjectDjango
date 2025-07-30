@@ -21,9 +21,12 @@
                       <h4 class="card-title">RUB {{ product.price }}</h4>
                 </div>
                 <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Просмотр</a>
+                <a href="{% url 'catalog:product_form' product.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Редактировать</a>
+                <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Удалить</a>
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
+<a href="{% url 'catalog:product_form' %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Создать продукт</a>
 {% endblock %}

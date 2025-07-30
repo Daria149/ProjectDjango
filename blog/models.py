@@ -35,3 +35,4 @@ class Blog(models.Model):
 
     def __str__(self):
         return f"{self.title}: содержимое {'self.content'}, количество просмотров: {'self.views_quantity'}"
+
