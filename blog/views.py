@@ -3,7 +3,6 @@ from django.urls import reverse_lazy, reverse
 from blog.models import Blog
 
 
-
 class BlogListView(ListView):
     model = Blog
     template_name = 'blog/blog_list.html'

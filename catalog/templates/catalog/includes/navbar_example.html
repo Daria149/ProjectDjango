@@ -1,15 +1,29 @@
 <div class="collapse text-bg-dark" id="navbarHeader">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 col-md-2 py-3">
+            <div class="col-sm-6 col-md-2 py-1">
                 <h4>Магазин</h4>
             </div>
-            <div class="col-sm-3 offset-md-1 py-4">
-                <h4>Информация</h4>
+            <div class="col-sm-3 offset-md-1 py-1">
                 <ul class="list-unstyled">
-                    <li><a href="/blog/" class="text-white">Блог</a></li>
-                    <li><a href="/contacts/" class="text-white">Контакты</a></li>
-                    <li><a href="/" class="text-white">Все товары</a></li>
+                    <li><a href="{% url 'blog:blog_list' %}" class="text-white">Блог</a></li>
+                    <li><a href="{% url 'catalog:contacts' %}" class="text-white">Контакты</a></li>
+                    <li><a href="{% url 'catalog:product_list' %}" class="text-white">Все товары</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 offset-md-1 py-4">
+                {% if user.is_authenticated %}
+                    <form action="{%url 'users:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="text-white">
+                            Выйти из аккаунта!
+                        </button>
+                    </form>
+                {% else %}
+                <ul class="list-unstyled">
+                <li><a href="{% url 'users:login' %}" class="text-white">Вход</a></li>
+                <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
+                {% endif %}
                 </ul>
             </div>
         </div>

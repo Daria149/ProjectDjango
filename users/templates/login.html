@@ -1,19 +1,21 @@
-{% extends 'blog/base.html' %}
+{% extends 'catalog/base.html' %}
 {% load my_tags %}
 {% block content %}
-<div class="col-9">
+<div class="col-12">
+</div>
     <div class='container'>
         <div class="row">
-            <div class="col-6">
+            <div class="col-9">
                 <form class="row" method="post" enctype="multipart/form-data">
                     <div class="card">
-                        <p class="card-text">Действительно удалить {{ object.title }}</p>
                         <div class="card-body">
                             {% csrf_token %}
+                            {{ form.as_p }}
                         </div>
+                        <button type="submit" class="btn btn-primary">
+                            Войти
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Удалить</button>
-                    <a href="{% url 'blog:blog_list' %}" class="btn btn-primary" role="button">Отменить</a>
                 </form>
             </div>
         </div>
