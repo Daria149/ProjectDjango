@@ -1,0 +1,36 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+{% include 'catalog/includes/for_main_page.html' %}
+<div class="row row-cols-1 row-cols-md-3 mt-4 g-4">
+    {% for product in object_list %}
+    <div class="col">
+        <div class="card card_param width: 200px  min-height: 100vh margin-top: 20px margin-left: 30px padding: 10px">
+            <div class="card-body">
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                        <h3 class="card-title">{{ product.name }}</h3>
+                </div>
+                <img src="{{ product.photo | media_filter }}" class="img-fluid" width="200">
+                <hr class="border-2"/>
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                      <h4 class="card-title">RUB {{ product.price }}</h4>
+                </div>
+                <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Просмотр</a>
+                {% if perms.catalog.can_unpublish_product or user == product.owner %}
+                <a href="{% url 'catalog:product_form' product.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Редактировать</a>
+                {% endif %}
+                {% if perms.catalog.delete_product or user == product.owner %}
+                <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Удалить</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'catalog:product_form' %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Создать продукт</a>
+{% endblock %}

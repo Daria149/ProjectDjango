@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/color-modes.js' %}"></script>
+  <title>Products</title>
+  <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+</head>
+<body>
+
+<header data-bs-theme="dark">
+{% include 'catalog/includes/navbar_example.html' %}
+</header>
+
+<div class="col-12 bg-light">
+    {% block content %}
+    {% endblock %}
+</div>
+</div>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}">
+</script>
+</body>
+</html>

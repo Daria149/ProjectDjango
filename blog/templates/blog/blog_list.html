@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+{% include 'catalog/includes/for_main_page.html' %}
+<div class="container d-flex
+   text-dark
+   align-items-center
+   justify-content-center">
+   <h1 style="margin-top: 20px">Страница Блога</h1>
+</div>
+<div class="row row-cols-1 row-cols-md-3 mt-4 g-4">
+    {% for article in object_list %}
+    <div class="col">
+        <div class="card card_param width: 200px  min-height: 100vh margin-top: 20px margin-left: 30px padding: 10px">
+            <div class="card-body">
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                        <h3 class="card-title">{{ article.title }}</h3>
+                </div>
+                <img src="{{ article.photo | media_filter }}" class="img-fluid" width="200">
+                <hr class="border-2"/>
+                <div class="container d-flex
+                    align-items-center
+                    justify-content-center">
+                      <h4 class="card-title"> {{ article.created_at }}</h4>
+                </div>
+                <a href="{% url 'blog:blog_detail' article.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Просмотр</a>
+                <a href="{% url 'blog:blog_form' article.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Редактировать</a>
+                <a href="{% url 'blog:blog_delete' article.pk %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Удалить</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'blog:blog_form' %}" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Создать статью</a>
+{% endblock %}
