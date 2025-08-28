@@ -13,9 +13,9 @@ class StyleFormMixin:
             else:
                 field.widget.attrs['class'] = "form-control"
 
-        self.fields['price'].widget.attrs.update({
-            'placeholder': 'Цена продукта должна быть положительным числом!'
-        })
+        # self.fields['price'].widget.attrs.update({
+        #     'placeholder': 'Цена продукта должна быть положительным числом!'
+        # })
 
 
 class ProductForm(StyleFormMixin, ModelForm):
@@ -42,3 +42,9 @@ class ProductForm(StyleFormMixin, ModelForm):
         if product_price < 0:
             raise ValidationError("Цена не может быть отрицательной!")
         return product_price
+
+
+class ModeratorForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Product
+        fields = ("publish_product",)
